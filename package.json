@@ -2,7 +2,7 @@
   "name": "miniature-octo-bear",
   "version": "0.0.0",
   "description": "Note-taking web app",
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/QuirkOo/miniature-octo-bear"
