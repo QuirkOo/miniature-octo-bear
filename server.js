@@ -13,7 +13,7 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.use('/', require('./app/routes/core'));
+app.use('/', require('./app/routes/core.routes'));
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
