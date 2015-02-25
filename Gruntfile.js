@@ -19,9 +19,16 @@ module.exports = function(grunt) {
       options: {
         livereload: true
       },
+      config: {
+        files: [ 'package.json' ],
+        tasks: [ 'dist', 'express' ],
+        options: {
+          spawn: false
+        }
+      },
       js: {
         files: [ 'Gruntfile.js', 'server.js' ],
-        tasks: [ 'jshint', 'express' ],
+        tasks: [ 'jshint', 'uglify', 'express' ],
         options: {
           spawn: false
         }
@@ -53,6 +60,16 @@ module.exports = function(grunt) {
     jshint: {
       all: [ 'Gruntfile.js', 'server.js' ]
     },
+    uglify: {
+      dev: {
+        options: {
+          beautify: true
+        },
+        files: {
+          'public/assets/js/main.js': 'public/modules/**/*.js'
+        }
+      }
+    },
     sass: {
       options: {
         noCache: true
@@ -62,18 +79,20 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'app/scss',
           src: [ '*.scss' ],
-          dest: 'public/modules/core/css',
+          dest: 'public/assets/css/',
           ext: '.css'
         }]
       }
     }
   });
 
-  grunt.registerTask('dist', [ 'wiredep', 'sass' ]);
+  grunt.registerTask('dist', [ 'wiredep', 'sass', 'uglify' ]);
 
   grunt.registerTask('test', [ 'jshint' ]);
 
-  grunt.registerTask('dev', [ 'test', 'dist', 'express', 'watch' ]);
+  grunt.registerTask('serve', [ 'express', 'watch' ]);
+
+  grunt.registerTask('dev', [ 'test', 'dist', 'serve' ]);
 
   grunt.registerTask('default', [ 'dev' ]);
 
