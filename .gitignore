@@ -10,5 +10,6 @@ public/lib
 # Logs
 /**/*.
 
-# Map files for compiled CSS
+# Compiled CSS
+public/modules/**/css/*.css
 public/modules/**/css/*.css.map
