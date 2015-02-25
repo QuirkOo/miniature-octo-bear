@@ -14,31 +14,34 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      options: {
+        livereload: true
+      },
       js: {
         files: [ 'Gruntfile.js', 'server.js' ],
-        tasks: [ 'default' ],
-        options: {
-          livereload: true
-        }
+        tasks: [ 'jshint' ]
       },
       sass: {
         files: [ 'app/scss/**/*.scss' ],
-        tasks: [ 'sass' ],
-        options: {
-          livereload: true
-        }
+        tasks: [ 'sass' ]
       },
       css: {
-        files: [ 'pubic/assets/css/*.css' ],
-        options: {
-          livereload: true
-        }
+        files: [ 'pubic/assets/css/*.css' ]
       },
       jade: {
-        files: [ 'app/**/*.jade' ],
-        options: {
-          livereload: true
-        }
+        files: [ 'app/**/*.jade' ]
+      },
+      bower: {
+        files: [ 'bower.json' ],
+        tasks: [ 'wiredep' ]
+      }
+    },
+    wiredep: {
+      options: {
+        ignorePath: '../../public/'
+      },
+      dev: {
+        src: [ 'app/views/_scripts.jade', 'app/views/_stylesheets.jade' ]
       }
     },
     jshint: {
@@ -61,7 +64,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('dist', [ 'sass' ]);
+  grunt.registerTask('dist', [ 'wiredep', 'sass' ]);
 
   grunt.registerTask('test', [ 'jshint' ]);
 
