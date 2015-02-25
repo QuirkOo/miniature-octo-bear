@@ -1,5 +1,6 @@
 
-script(src="//localhost:35729/livereload.js")
+if process.env.NODE_ENV === "dev"
+    script(src="//localhost:35729/livereload.js")
 
 // bower:js
 script(src='lib/modernizr/modernizr.js')
