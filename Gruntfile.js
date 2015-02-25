@@ -23,10 +23,13 @@ module.exports = function(grunt) {
       },
       sass: {
         files: [ 'app/scss/**/*.scss' ],
-        tasks: [ 'sass' ]
+        tasks: [ 'sass' ],
+        options: {
+          livereload: true
+        }
       },
       css: {
-        files: [ 'pubic/assets/css/**/*.css' ],
+        files: [ 'pubic/assets/css/*.css' ],
         options: {
           livereload: true
         }
@@ -51,7 +54,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'app/scss',
           src: [ '*.scss' ],
-          dest: 'public/assets/css',
+          dest: 'public/modules/core/css',
           ext: '.css'
         }]
       }
