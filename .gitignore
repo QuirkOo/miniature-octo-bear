@@ -8,4 +8,7 @@ node_modules
 public/lib
 
 # Logs
-/**/*.log
+/**/*.
+
+# Map files for compiled CSS
+public/modules/**/css/*.css.map
