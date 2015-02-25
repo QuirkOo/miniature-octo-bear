@@ -1,20 +1,16 @@
 doctype html
 html(lang="en")
     head
-        title= "Hello"
-        link(rel="stylesheet", href="modules/core/css/core.css")
+        title "OctoBear"
+        include ./_stylesheets.jade
     body
-        header.top-bar
+        header
+            include ./_header.jade
 
-        main.row
-            aside.small-12.medium-3.columns
-                ul.side-nav
-                    li Note 1
-                    li Note 2
-            section.small-12.medium-9.columns
-                h1 Hello Foundation
-                p Test
+        main
+            block content
 
-        footer.row
+        footer
+            include ./_footer.jade
 
-        script(src="//localhost:35729/livereload.js")
+        include ./_scripts.jade
