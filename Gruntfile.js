@@ -9,14 +9,14 @@ module.exports = function(grunt) {
       options: {
         script: 'server.js'
       },
-      default: {
+      dev: {
         node_env: 'dev'
       }
     },
     watch: {
       js: {
-        files: [ 'Gruntfile.js' ],
-        tasks: [ 'jshint' ],
+        files: [ 'Gruntfile.js', 'server.js' ],
+        tasks: [ 'default' ],
         options: {
           livereload: true
         }
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: [ 'Gruntfile.js' ]
+      all: [ 'Gruntfile.js', 'server.js' ]
     },
     sass: {
       options: {
@@ -65,6 +65,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [ 'jshint' ]);
 
-  grunt.registerTask('default', [ 'test', 'dist', 'express', 'watch' ]);
+  grunt.registerTask('dev', [ 'test', 'dist', 'express', 'watch' ]);
+
+  grunt.registerTask('default', [ 'dev' ]);
 
 };
