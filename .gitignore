@@ -10,6 +10,6 @@ public/lib
 # Logs
 /**/*.
 
-# Compiled CSS
-public/modules/**/css/*.css
-public/modules/**/css/*.css.map
+# Compiled CSS and JS
+public/assets/css
+public/assets/js
