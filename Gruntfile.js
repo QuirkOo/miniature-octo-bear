@@ -10,7 +10,9 @@ module.exports = function(grunt) {
         script: 'server.js'
       },
       dev: {
-        node_env: 'dev'
+        options: {
+          node_env: 'dev'
+        }
       }
     },
     watch: {
@@ -19,7 +21,10 @@ module.exports = function(grunt) {
       },
       js: {
         files: [ 'Gruntfile.js', 'server.js' ],
-        tasks: [ 'jshint' ]
+        tasks: [ 'jshint', 'express' ],
+        options: {
+          spawn: false
+        }
       },
       sass: {
         files: [ 'app/scss/**/*.scss' ],
@@ -29,7 +34,7 @@ module.exports = function(grunt) {
         files: [ 'pubic/assets/css/*.css' ]
       },
       jade: {
-        files: [ 'app/**/*.jade' ]
+        files: [ 'app/views/*.jade' ]
       },
       bower: {
         files: [ 'bower.json' ],
@@ -41,7 +46,8 @@ module.exports = function(grunt) {
         ignorePath: '../../public/'
       },
       dev: {
-        src: [ 'app/views/_scripts.jade', 'app/views/_stylesheets.jade' ]
+        src: [ 'app/views/_scripts.jade', 'app/views/_stylesheets.jade' ],
+        exclude: [ 'public/lib/foundation/css']
       }
     },
     jshint: {
@@ -49,8 +55,7 @@ module.exports = function(grunt) {
     },
     sass: {
       options: {
-        noCache: true,
-        sourcemap: 'none'
+        noCache: true
       },
       dist: {
         files: [{
