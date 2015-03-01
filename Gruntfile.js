@@ -33,6 +33,10 @@ module.exports = function(grunt) {
           spawn: false
         }
       },
+      angular: {
+        files: [ 'public/modules/**/*.js' ],
+        tasks: [ 'jshint', 'uglify' ]
+      },
       sass: {
         files: [ 'app/scss/**/*.scss' ],
         tasks: [ 'sass' ]
@@ -41,7 +45,7 @@ module.exports = function(grunt) {
         files: [ 'pubic/assets/css/*.css' ]
       },
       jade: {
-        files: [ 'app/views/*.jade' ]
+        files: [ 'app/views/*.jade', 'public/modules/**/*.jade' ]
       },
       bower: {
         files: [ 'bower.json' ],
@@ -58,7 +62,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: [ 'Gruntfile.js', 'server.js' ]
+      all: [ 'public/modules/**/*.js', 'Gruntfile.js', 'server.js' ]
     },
     uglify: {
       dev: {

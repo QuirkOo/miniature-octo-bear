@@ -1,2 +1,19 @@
 
-var app = angular.module('NoteApp', []);
+var app = angular.module('NoteApp', [ 'ui.router', 'angular-quill' ]);
+
+app.config([ '$locationProvider', '$stateProvider', '$urlRouterProvider',
+  function($locationProvider, $stateProvider, $urlRouterProvider) {
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+      .state('home', {
+        url: '/',
+        templateUrl: '/core/views/index'
+      });
+
+}]);

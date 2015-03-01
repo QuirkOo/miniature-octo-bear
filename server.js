@@ -13,12 +13,12 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.use('/', require('./app/routes/core.routes'));
+app.get('/:module/views/:name', function(req, res) {
+  res.render('../../public/modules/' + req.path);
+});
 
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.all('/*', function(req, res, next) {
+  res.render('index');
 });
 
 app.listen(3000);
