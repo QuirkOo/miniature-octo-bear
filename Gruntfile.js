@@ -28,24 +28,24 @@ module.exports = function(grunt) {
       },
       js: {
         files: [ 'Gruntfile.js', 'server.js' ],
-        tasks: [ 'jshint', 'uglify', 'express' ],
+        tasks: [ 'jshint:server', 'express' ],
         options: {
           spawn: false
         }
       },
       angular: {
-        files: [ 'public/modules/**/*.js' ],
-        tasks: [ 'jshint', 'uglify' ]
+        files: [ 'app/modules/**/*.js' ],
+        tasks: [ 'jshint:client', 'uglify' ]
       },
       sass: {
         files: [ 'app/scss/**/*.scss' ],
         tasks: [ 'sass' ]
       },
       css: {
-        files: [ 'pubic/assets/css/*.css' ]
+        files: [ 'pubic/assets/css/*.css', 'public/assets/css/*.css.map' ]
       },
       jade: {
-        files: [ 'app/views/*.jade', 'public/modules/**/*.jade' ]
+        files: [ 'app/views/*.jade', 'app/modules/**/*.jade' ]
       },
       bower: {
         files: [ 'bower.json' ],
@@ -62,7 +62,8 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: [ 'public/modules/**/*.js', 'Gruntfile.js', 'server.js' ]
+      server: [ 'Gruntfile.js', 'server.js' ],
+      client: [ 'app/modules/**/*.js' ]
     },
     uglify: {
       dev: {
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          'public/assets/js/main.js': 'public/modules/**/*.js'
+          'public/assets/js/main.js': 'app/modules/**/*.js'
         }
       }
     },
