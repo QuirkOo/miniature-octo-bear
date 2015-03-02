@@ -7,11 +7,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     express: {
       options: {
-        script: 'server.js'
+        script: 'bin/www',
+        port: 3000
       },
       dev: {
         options: {
-          node_env: 'dev'
+          node_env: 'dev',
+          debug: true
         }
       }
     },
