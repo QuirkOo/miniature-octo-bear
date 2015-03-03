@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/:module/views/:name', function(req, res) {
-  res.render('app/modules/' + req.path);
+  res.render('../modules/' + req.path);
 });
 
 app.all('/*', function(req, res, next) {
