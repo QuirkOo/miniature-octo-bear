@@ -13,3 +13,6 @@ public/lib
 # Compiled CSS and JS
 public/assets/css
 public/assets/js
+
+app/views/_stylesheets.jade
+app/views/_scripts.jade
