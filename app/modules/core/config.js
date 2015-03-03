@@ -1,5 +1,5 @@
 
-var app = angular.module('NoteApp', [ 'ui.router', 'angular-quill' ]);
+var app = angular.module('NoteApp', [ 'ui.router' ]);
 
 app.config([ '$locationProvider', '$stateProvider', '$urlRouterProvider',
   function($locationProvider, $stateProvider, $urlRouterProvider) {
