@@ -22,6 +22,7 @@
     "angular-ui-layout": "~1.0.5",
     "ngstorage": "~0.3.0",
     "angular-marked": "~0.0.12",
-    "angular-marked-mathjax": "~0.0.14"
+    "angular-marked-mathjax": "~0.0.14",
+    "semantic-ui": "~1.10.4"
   }
 }
