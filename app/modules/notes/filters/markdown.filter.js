@@ -4,4 +4,4 @@ angular.module('NoteApp')
       return function(input) {
         return marked(input);
       };
-    }]);
+  }]);
