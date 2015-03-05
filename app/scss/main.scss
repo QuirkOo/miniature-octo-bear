@@ -1,4 +1,16 @@
 
-.row {
-  max-width: none;
+$headerHeight: 41px;
+
+
+html, body, main, .full-height, .full-height.ui.grid > .column {
+  height: 100%;
+  overflow: auto;
+}
+
+main {
+  height: calc(100% - #{$headerHeight});
+}
+
+.full-width, .full-width.ui.grid {
+  margin: 0;
 }

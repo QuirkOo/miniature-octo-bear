@@ -1,10 +1,14 @@
 
-.row
-    aside.small-12.medium-3.columns
-        ul.side-nav
+.full-width.full-height.ui.divided.stackable.grid
+
+    aside.two.wide.column
+        ul
             li Note 1
             li Note 2
             li Note 3
 
-    section.small-12.medium-9.columns
-        #editor
+    .fourteen.wide.column(ng-controller="EditorController")
+        .ui.full-height.two.column.grid
+            section.full-height.column(ui-ace="{onLoad: aceLoaded}", ng-model="text")
+            section.full-height.column(ng-bind-html="text | markdown", scroll-glue)
+            p {{ text }}
