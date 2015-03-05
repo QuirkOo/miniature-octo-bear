@@ -59,8 +59,7 @@ module.exports = function(grunt) {
         ignorePath: '../../public/'
       },
       dev: {
-        src: [ 'app/views/_scripts.jade', 'app/views/_stylesheets.jade' ],
-        exclude: [ 'public/lib/foundation/css']
+        src: [ 'app/views/_bower.scripts.jade', 'app/views/_bower.stylesheets.jade' ]
       }
     },
     jshint: {
