@@ -21,8 +21,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.4.19",
     "grunt-protractor-runner": "^1.2.1",
+    "grunt-protractor-webdriver": "^0.2.0",
     "grunt-wiredep": "^2.0.0",
-    "load-grunt-tasks": "^3.1.0"
+    "load-grunt-tasks": "^3.1.0",
+    "protractor": "^1.8.0"
   },
   "dependencies": {
     "body-parser": "^1.12.0",
