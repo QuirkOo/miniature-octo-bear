@@ -54,6 +54,13 @@ module.exports = function(grunt) {
         tasks: [ 'wiredep' ]
       }
     },
+    protractor: {
+      options: {
+        configFile: "test/e2e/protractor.conf.js",
+        keepAlive: true
+      },
+      test: {}
+    },
     wiredep: {
       options: {
         ignorePath: '../../public/'
@@ -92,9 +99,10 @@ module.exports = function(grunt) {
     }
   });
 
+
   grunt.registerTask('dist', [ 'wiredep', 'sass', 'uglify' ]);
 
-  grunt.registerTask('test', [ 'jshint' ]);
+  grunt.registerTask('test', [ 'jshint', 'protractor' ]);
 
   grunt.registerTask('serve', [ 'express', 'watch' ]);
 
