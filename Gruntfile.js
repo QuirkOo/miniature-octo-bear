@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       },
       angular: {
         files: [ 'app/modules/**/*.js' ],
-        tasks: [ 'jshint:client', 'uglify' ]
+        tasks: [ 'jshint:client', 'uglify', 'protractor' ]
       },
       sass: {
         files: [ 'app/scss/**/*.scss' ],
@@ -53,6 +53,13 @@ module.exports = function(grunt) {
         files: [ 'bower.json' ],
         tasks: [ 'wiredep' ]
       }
+    },
+    protractor: {
+      options: {
+        configFile: "test/e2e/protractor.conf.js",
+        keepAlive: true
+      },
+      test: {}
     },
     wiredep: {
       options: {
@@ -92,9 +99,10 @@ module.exports = function(grunt) {
     }
   });
 
+
   grunt.registerTask('dist', [ 'wiredep', 'sass', 'uglify' ]);
 
-  grunt.registerTask('test', [ 'jshint' ]);
+  grunt.registerTask('test', [ 'jshint', 'protractor' ]);
 
   grunt.registerTask('serve', [ 'express', 'watch' ]);
 
