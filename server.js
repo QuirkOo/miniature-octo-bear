@@ -9,7 +9,7 @@ var express = require('express'),
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/octobear',
+mongoose.connect('mongodb://localhost/octobear:' + process.env.NODE_ENV,
     function(err) {
       if (err) {
         console.log('Failed to connect to database.');
