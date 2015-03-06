@@ -46,8 +46,12 @@ module.exports = function(grunt) {
       css: {
         files: [ 'pubic/assets/css/*.css', 'public/assets/css/*.css.map' ]
       },
-      jade: {
-        files: [ 'app/views/*.jade', 'app/modules/**/*.jade' ]
+      clientViews: {
+          files: [ 'app/modules/**/*.jade' ],
+          tasks: [ 'protractor' ]
+        },
+      serverViews: {
+        files: [ 'app/views/*.jade']
       },
       bower: {
         files: [ 'bower.json' ],
