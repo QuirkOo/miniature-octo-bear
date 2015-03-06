@@ -1,6 +1,13 @@
 
 angular.module('NoteApp')
-    .controller('EditorController', [ '$scope', function($scope) {
+    .controller('EditorController', [ '$scope', '$http', function($scope, $http) {
+
+      $scope.save = function() {
+        $http.post('/notes', {
+          title: 'Untitled',
+          text: $scope.text
+        });
+      };
 
       $scope.aceLoaded = function(editor) {
         // console.log('Ace loaded');

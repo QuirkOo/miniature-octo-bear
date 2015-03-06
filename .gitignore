@@ -14,5 +14,5 @@ public/lib
 public/assets/css
 public/assets/js
 
-app/views/_bower.stylesheets.jade
-app/views/_bower.scripts.jade
+app/server/views/_bower.stylesheets.jade
+app/server/views/_bower.scripts.jade

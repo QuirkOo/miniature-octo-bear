@@ -29,29 +29,29 @@ module.exports = function(grunt) {
         }
       },
       js: {
-        files: [ 'Gruntfile.js', 'server.js' ],
+        files: [ 'Gruntfile.js', 'server.js', 'app/server/**/*.js' ],
         tasks: [ 'jshint:server', 'express' ],
         options: {
           spawn: false
         }
       },
       angular: {
-        files: [ 'app/modules/**/*.js' ],
+        files: [ 'app/client/modules/**/*.js' ],
         tasks: [ 'jshint:client', 'uglify', 'protractor' ]
       },
       sass: {
-        files: [ 'app/scss/**/*.scss' ],
+        files: [ 'app/server/scss/**/*.scss' ],
         tasks: [ 'sass' ]
       },
       css: {
         files: [ 'pubic/assets/css/*.css', 'public/assets/css/*.css.map' ]
       },
       clientViews: {
-          files: [ 'app/modules/**/*.jade' ],
+          files: [ 'app/client/modules/**/*.jade' ],
           tasks: [ 'protractor' ]
         },
       serverViews: {
-        files: [ 'app/views/*.jade']
+        files: [ 'app/server/views/*.jade']
       },
       bower: {
         files: [ 'bower.json' ],
@@ -70,12 +70,12 @@ module.exports = function(grunt) {
         ignorePath: '../../public/'
       },
       dev: {
-        src: [ 'app/views/_bower.scripts.jade', 'app/views/_bower.stylesheets.jade' ]
+        src: [ 'app/server/views/_bower.scripts.jade', 'app/server/views/_bower.stylesheets.jade' ]
       }
     },
     jshint: {
-      server: [ 'Gruntfile.js', 'server.js' ],
-      client: [ 'app/modules/**/*.js' ]
+      server: [ 'Gruntfile.js', 'server.js', 'app/server/**/*.js' ],
+      client: [ 'app/client/modules/**/*.js' ]
     },
     uglify: {
       dev: {
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          'public/assets/js/main.js': 'app/modules/**/*.js'
+          'public/assets/js/main.js': 'app/client/modules/**/*.js'
         }
       }
     },
@@ -108,9 +108,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [ 'jshint', 'protractor' ]);
 
-  grunt.registerTask('serve', [ 'express', 'watch' ]);
+  grunt.registerTask('serve', [ 'express' ]);
 
-  grunt.registerTask('dev', [ 'test', 'dist', 'serve' ]);
+  grunt.registerTask('dev', [ 'dist', 'serve', 'test', 'watch' ]);
 
   grunt.registerTask('default', [ 'dev' ]);
 

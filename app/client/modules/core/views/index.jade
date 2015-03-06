@@ -9,5 +9,6 @@
 
     .fourteen.wide.column(ng-controller="EditorController")
         .ui.full-height.two.column.grid
+            button.ui.button(ng-click="save()") Save
             section.full-height.column(ui-ace="{onLoad: aceLoaded}", ng-model="text")
             section.full-height.column(ng-bind-html="text | markdown", scroll-glue="true", mathjax="text")
