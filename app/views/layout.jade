@@ -3,6 +3,11 @@ html(lang="en")
     head
         title OctoBear
         include _stylesheets.jade
+        script(type="text/x-mathjax-config").
+            MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+            });
+        script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
     body(ng-app="NoteApp")
         header
             include _header.jade

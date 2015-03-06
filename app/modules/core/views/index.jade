@@ -10,4 +10,4 @@
     .fourteen.wide.column(ng-controller="EditorController")
         .ui.full-height.two.column.grid
             section.full-height.column(ui-ace="{onLoad: aceLoaded}", ng-model="text")
-            section.full-height.column(ng-bind-html="text | markdown", scroll-glue="true")
+            section.full-height.column(ng-bind-html="text | markdown", scroll-glue="true", mathjax="text")
