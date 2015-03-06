@@ -25,4 +25,14 @@ router.post('/', function(req, res, next) {
 
 });
 
+router.get('/:id', function(req, res, next) {
+
+  Note.findById(req.params.id, function(err, note) {
+    if (err) {
+      return next(err);
+    }
+    res.json(note);
+  });
+});
+
 module.exports = router;
