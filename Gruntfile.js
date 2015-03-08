@@ -7,12 +7,17 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     express: {
       options: {
-        script: 'bin/www',
-        port: 3000
+        script: 'bin/www'
       },
       dev: {
         options: {
           node_env: 'dev',
+          debug: true
+        }
+      },
+      test: {
+        options: {
+          node_env: 'test',
           debug: true
         }
       }
@@ -106,11 +111,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('dist', [ 'wiredep', 'sass', 'uglify' ]);
 
-  grunt.registerTask('test', [ 'jshint', 'protractor' ]);
+  grunt.registerTask('test', [ 'express:test', 'jshint', 'protractor' ]);
 
-  grunt.registerTask('serve', [ 'express' ]);
-
-  grunt.registerTask('dev', [ 'dist', 'serve', 'test', 'watch' ]);
+  grunt.registerTask('dev', [ 'test', 'dist', 'express:dev', 'watch' ]);
 
   grunt.registerTask('default', [ 'dev' ]);
 
