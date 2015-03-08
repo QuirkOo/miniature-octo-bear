@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/octobear:' + process.env.NODE_ENV,
 
 // Views
 app.set('views', path.join(__dirname, 'app/server/views'));
-app.set('view engine', 'jade');
+app.set('view engine', config.templateEngine);
 
 // Static files
 // uncomment after placing your favicon in /public
@@ -45,7 +45,7 @@ app.get('/:module/views/:name', function(req, res) {
 });
 
 app.all('/*', function(req, res, next) {
-  res.render('index');
+  res.render('index', { app: config.app });
 });
 
 // development error handler
