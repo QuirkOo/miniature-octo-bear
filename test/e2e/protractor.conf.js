@@ -1,9 +1,11 @@
+var config = require('../../config/config');
+
 exports.config = {
   // Spec patterns are relative to the current working directly when
   // protractor is called.
   specs: [ './**/*.test.js' ],
 
-  baseUrl: 'http://localhost:3000/',
+  baseUrl: config.baseUrl,
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {

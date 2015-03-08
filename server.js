@@ -1,5 +1,6 @@
 
-var express = require('express'),
+var config = require('./config/config.js'),
+    express = require('express'),
     path = require('path'),
     mongoose = require('mongoose'),
     favicon = require('serve-favicon'),
@@ -8,6 +9,7 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 var app = express();
+app.set('port', config.port);
 
 mongoose.connect('mongodb://localhost/octobear:' + process.env.NODE_ENV,
     function(err) {
