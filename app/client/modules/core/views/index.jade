@@ -1,4 +1,12 @@
 
+header
+    nav.ui.large.inverted.menu
+        a.active.item
+            i.home.icon
+            | Home
+        .right.aligned.item
+            button.ui.primary.button Save
+
 .full-width.full-height.ui.divided.stackable.grid
 
     aside.two.wide.column(ng-controller="NoteController")
@@ -6,7 +14,7 @@
             li
                 a(href="#", ng-click="load(note)") {{ note.title }}
 
-    .fourteen.wide.column(ng-controller="EditorController")
+    section.fourteen.wide.column(ng-controller="EditorController")
         .ui.full-height.two.column.grid
             section.full-height.column(ui-ace="{onLoad: aceLoaded}", ng-model="text")
             section.full-height.column(ng-bind-html="text | markdown", scroll-glue="true", mathjax="text")
