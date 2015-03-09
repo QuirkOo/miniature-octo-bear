@@ -1,15 +1,17 @@
 
-angular.module('NoteApp')
-    .controller('EditorController', [ '$scope', '$http', function($scope, $http) {
+angular
+    .module('NoteApp')
+    .controller('EditorCtrl', [ '$http', function($http) {
+      var self = this;
 
-      $scope.save = function() {
+      this.save = function() {
         $http.post('/notes', {
           title: 'Untitled',
-          text: $scope.text
+          text: self.text
         });
       };
 
-      $scope.aceLoaded = function(editor) {
+      this.aceLoaded = function(editor) {
         // console.log('Ace loaded');
         editor.getSession().setMode('ace/mode/markdown');
 
@@ -21,7 +23,7 @@ angular.module('NoteApp')
         editor.gotoLine(count, session.getLine(count-1).length);
       };
 
-      $scope.text = '';
+      this.text = '';
 
     }]);
 
