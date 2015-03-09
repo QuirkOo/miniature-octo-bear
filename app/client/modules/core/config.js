@@ -1,10 +1,10 @@
 
-var app = angular.module('NoteApp', [ 'ui.router', 'ngSanitize', 'ui.ace', 'hc.marked', 'luegg.directives' ]);
+angular
+    .module('NoteApp', [
+      'ui.router',
+      'ngSanitize',
+      'ui.ace',           // Web code editor
+      'hc.marked',        // Markdown compiler
+      'luegg.directives'  // Scroll glue
+    ]);
 
-app.config(['markedProvider', function(markedProvider) {
-  markedProvider.setOptions({
-    highlight: function (code) {
-      return hljs.highlightAuto(code).value;
-    }
-  });
-}]);
