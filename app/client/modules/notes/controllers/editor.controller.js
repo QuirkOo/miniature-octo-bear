@@ -1,14 +1,13 @@
 
 angular
     .module('NoteApp')
-    .controller('EditorCtrl', [ '$http', function($http) {
-      var self = this;
+    .controller('EditorCtrl', [ 'notes', function(notes) {
+
+      this.title = 'Untitled';
+      this.text = '';
 
       this.save = function() {
-        $http.post('/notes', {
-          title: 'Untitled',
-          text: self.text
-        });
+        notes.add(this.title, this.text);
       };
 
       this.aceLoaded = function(editor) {
@@ -22,8 +21,6 @@ angular
         //Go to end of the last line
         editor.gotoLine(count, session.getLine(count-1).length);
       };
-
-      this.text = '';
 
     }]);
 

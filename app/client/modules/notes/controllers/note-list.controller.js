@@ -1,13 +1,10 @@
 
 angular
     .module('NoteApp')
-    .controller('NoteListCtrl', [ '$http', function($http) {
+    .controller('NoteListCtrl', [ 'notes', function(notes) {
 
-      this.notes = [];
+      notes.list(function(data) {
+        this.notes = data || [];
+      });
 
-      var self = this;
-      $http.get('/notes')
-          .success(function(data) {
-            self.notes = data;
-          });
     }]);
