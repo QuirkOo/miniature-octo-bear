@@ -6,5 +6,5 @@ angular
       notes.list(function(data) {
         this.notes = data || [];
       });
-
     }]);
+

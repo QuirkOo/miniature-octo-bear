@@ -12,6 +12,9 @@ angular
         },
         list: function(callback) {
           $http.get('/notes').success(callback);
+        },
+        get: function(id, callback) {
+          $http.get('/notes/' + id).success(callback);
         }
-      }
+      };
     }]);
